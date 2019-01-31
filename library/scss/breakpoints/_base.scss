@@ -3,9 +3,9 @@ GENERAL STYLES
 *********************/
 
 body {
-	font-family: $mono;
-	font-size: 100%;
-	line-height: 1.5;
+	font-family: $body;
+	font-size: 110%;
+	line-height: 2;
 	color: $text-color;
 	background-color: $white;
   	-webkit-font-smoothing: antialiased;
@@ -122,7 +122,7 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
 	font-weight: 500;
-	font-family: $serif;
+	font-family: $sans-serif;
 
 	a {
 		text-decoration: none;
