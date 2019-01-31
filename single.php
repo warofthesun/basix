@@ -8,7 +8,9 @@
 					<main id="main" class="col-xs-12 col-sm-9 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
+							<div class="hero">
+								<?php the_post_thumbnail('full'); ?>
+							</div>
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
                 <header class="article-header entry-header">
