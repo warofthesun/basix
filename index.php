@@ -9,24 +9,18 @@
 			?>
 				<div id="inner-content" class="wrap row">
 
-					<?php
-					if ( is_front_page() ) {
-						echo '<main id="main" class="col-xs-12 " role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">';
-					} else {
-						echo '<div id="<main id="main" class="col-xs-12 col-sm-8 col-lg-9 " role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">';
-					}
-					?>
+
+						<div id="main" class="col-xs-12 col-md-10" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( ' single-post' ); ?> role="article">
+								<div class="hero">
+									<?php the_post_thumbnail('full'); ?>
+								</div>
 
-								<?php
-								if ( is_front_page() ) {
-									echo '<header class="article-header col-sm-8">';
-								} else {
-									echo '<header class="article-header">';
-								}
-								?>
+
+								<header class="article-header">
 									<h1 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 									<p class="byline entry-meta vcard">
 	                      <?php printf( __( '', 'treystheme' ).' %1$s %2$s',
@@ -45,7 +39,7 @@
 
 								<?php
 								if ( is_front_page() ) {
-									echo '<footer class="article-footer col-sm-8">';
+									echo '<footer class="article-footer">';
 								} else {
 									echo '<footer class="article-footer">';
 								}

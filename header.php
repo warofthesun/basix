@@ -58,29 +58,8 @@
 
 				<div id="inner-header" class="wrap row">
 
-					<p id="logo" class="h1 col-sm-4" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow">the st<span style="font-size:0.8em;margin:0 -2px;">&#x25b2;</span>r simpler</a></p>
-					<div class="dropdown--dropdowns row col-sm-12">
-						<div class="dropdown--archive">
-							<select name="archive-dropdown" class="dropdown--archive-dropdown" onChange='document.location.href=this.options[this.selectedIndex].value;'>
-							<option value=""><?php echo attribute_escape(__('archives')); ?></option>
-							<?php wp_get_archives('type=monthly&format=option'); ?> </select>
-						</div>
-						<div class="dropdown--category">
-							<?php wp_dropdown_categories( 'show_option_none=categories' ); ?>
-							<script type="text/javascript">
-								<!--
-								var dropdown = document.getElementById("cat");
-								function onCatChange() {
-									if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
-										location.href = "<?php echo esc_url( home_url( '/' ) ); ?>?cat="+dropdown.options[dropdown.selectedIndex].value;
-									}
-								}
-								dropdown.onchange = onCatChange;
-								-->
-							</script>
-						</div>
+					<p id="logo" class="h1" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
 
-					</div>
 					<nav role="navigation" class="navigation--menu-left col-sm-4" itemscope itemtype="http://schema.org/SiteNavigationElement">
 						<?php wp_nav_menu(array(
     					         'container' => false,                           // remove nav container
@@ -115,7 +94,7 @@
 					</nav>
 
 					<div id="mobile-nav">
-						Menu
+						Menu <i class="fas fa-angle-down"></i>
 					</div>
 				</div>
 

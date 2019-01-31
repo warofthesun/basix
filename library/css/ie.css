@@ -141,28 +141,6 @@ BOX SIZING
 /* @include box-sizing(border-box); */
 /* NOTE: value of "padding-box" is only supported in Gecko. So
 probably best not to use it. I mean, were you going to anyway? */
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: 481px and Up Stylesheet
-
-This stylesheet is loaded for larger devices. It's set to
-481px because at 480px it would load on a landscaped iPhone.
-This isn't ideal because then you would be loading all those
-extra styles on that same mobile connection.
-
-A word of warning. This size COULD be a larger mobile device,
-so you still want to keep it pretty light and simply expand
-upon your base.scss styles.
-
-******************************************************************/
-/*
-IMPORTANT NOTE ABOUT SASS 3.3 & UP
-You can't use @extend within media queries
-anymore, so just be aware that if you drop
-them in here, they won't work.
-*/
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -207,11 +185,13 @@ POSTS & CONTENT STYLES
   .entry-content .alignleft, .entry-content img.alignleft {
     margin-right: 1.5em;
     display: inline;
-    float: left; }
+    float: left;
+    margin-left: -5em; }
   .entry-content .alignright, .entry-content img.alignright {
     margin-left: 1.5em;
     display: inline;
-    float: right; }
+    float: right;
+    margin-right: -5em; }
   .entry-content .aligncenter, .entry-content img.aligncenter {
     margin-right: auto;
     margin-left: auto;
@@ -227,31 +207,11 @@ check your menus here. do they look good?
 do they need tweaking?
 */
 /* end .footer-links */
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Tablet & Small Desktop Stylesheet
-
-Here's where you can start getting into the good stuff.
-This size will work on iPads, other tablets, and desktops.
-So you can start working with more styles, background images,
-and other resources. You'll also notice the grid starts to
-come into play. Have fun!
-
-******************************************************************/
 /*********************
 GENERAL STYLES
 *********************/
 .page--front-page .article-header, .page--front-page .article-footer {
   margin: 0 auto; }
-
-.page--front-page .entry-content p {
-  -ms-flex-preferred-size: 66.66666667%;
-      flex-basis: 66.66666667%;
-  max-width: 66.66666667%;
-  margin: 0 auto;
-  margin-bottom: 1.5em; }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -411,16 +371,6 @@ mobile. Make sure to double check these!
 			*/ }
 
 /* end .footer-links */
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Desktop Stylsheet
-
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop.
-
-******************************************************************/
 .wrap {
   width: 1040px; }
 

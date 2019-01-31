@@ -1,16 +1,3 @@
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
-and will be used across all viewports.
-
-******************************************************************/
-
 /*********************
 GENERAL STYLES
 *********************/
@@ -43,6 +30,13 @@ img {
 		li {
 			border-bottom: 0px;
 		}
+	}
+}
+
+.hero {
+	img {
+		max-width: 100%;
+		height: auto;
 	}
 }
 
@@ -94,6 +88,7 @@ LAYOUT & GRID STYLES
 .wrap {
 	width: 96%;
 	margin: 0 auto;
+	justify-content: center;
 }
 
 /*********************
@@ -115,11 +110,7 @@ a, a:visited {
 
 	/* mobile tap color */
 	&:link {
-		/*
-		this highlights links on iPhones/iPads.
-		so it basically works like the :hover selector
-		for mobile devices.
-		*/
+
 		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
 	}
 }
@@ -133,12 +124,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	font-weight: 500;
 	font-family: $serif;
 
-	/*
-	if you're going to use webfonts, be sure to check your weights
-	http://css-tricks.com/watch-your-font-weight/
-	*/
-
-	/* removing text decoration from all headline links */
 	a {
 		text-decoration: none;
 	}
@@ -204,15 +189,6 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
 
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-
-*/
-
 #mobile-nav {
 	text-align: center;
 	margin-bottom: 1em;
@@ -225,57 +201,21 @@ and more scalable.
 		margin-top: 1em;
 		padding: .5em;
 		background-color: white;
-
-		&:after {
-			content: "\f106";
-			text-align: center;
-			width: 100%;
-			display: inline;
-			font-family: fontawesome;
-
-		}
 	}
-
-	&:after {
-		content: "\f107";
-		text-align: center;
-		width: 100%;
-		display: inline;
-		font-family: fontawesome;
-
-	}
-
 }
 
-/*the container must be positioned relative:*/
 .custom-select {
   position: relative;
   min-width: 160px;
   text-align: center;
 }
 .custom-select select {
-  display: none; /*hide original SELECT element:*/
+  display: none;
 }
 .select-selected {
   background-color: $white;
 }
-/*style the arrow inside the select element:
-.select-selected:after {
-  position: absolute;
-  content: "\25bc";
-  top: 15px;
-  font-size: .5em;
-  right: 30px;
-  width: 0;
-  height: 0;
-}
-/*point the arrow upwards when the select box is open (active):
-.select-selected.select-arrow-active:after {
-  content: "\25b2";
-  top: 12px;
-  font-size: .8em;
-}
-/*style the items (options), including the selected item:*/
+
 .select-items div,.select-selected {
   color: $black;
   padding: 8px 16px;
@@ -283,7 +223,7 @@ and more scalable.
   border-color: transparent transparent rgba(0, 0, 0, 0.0) transparent;
   cursor: pointer;
 }
-/*style items (options):*/
+
 .select-items {
   position: absolute;
   background-color: $white;
@@ -292,40 +232,12 @@ and more scalable.
   right: 0;
   z-index: 99;
 }
-/*hide the items when the select box is closed:*/
+
 .select-hide {
   display: none;
 }
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
-}
-
-
-.dropdown {
-
-	&--dropdowns {
-	order: 4;
-	justify-content: center;
-	margin-top: -1.5em;
-	z-index: 999;
-
-	select {
-		background-color: $white !important;
-	}
-
-	}
-
-	&--archive-dropdown {
-		padding: 0;
-		padding-left: 1em;
-		}
-
-	&--category {
-		.postform {
-		padding: 0;
-		padding-left: 1em;
-		}
-		}
 }
 
 .nav {
@@ -351,29 +263,12 @@ and more scalable.
 			color: $teal;
 			text-decoration: none;
 			padding: 0.75em;
-
-			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
-			&:hover, &:focus {
-
-			}
 		}
 
 		&:first-child {}
 
 		&:last-child {}
 
-		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
 		ul.sub-menu,
 		ul.children {
 
@@ -397,18 +292,17 @@ and more scalable.
 
 		}
 
-	} /* end .menu li */
+	}
 
-	/* highlight current page */
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
 
 		a {}
 
-	}  /* end current highlighters */
+	}
 
-} /* end .nav */
+}
 
 /*********************
 POSTS & CONTENT STYLES
@@ -455,7 +349,7 @@ POSTS & CONTENT STYLES
 				}
 			}
 
-		} /* end .hentry */
+		}
 
 		.single-title,
 		.page-title,
@@ -490,7 +384,7 @@ POSTS & CONTENT STYLES
 
 		.archive-title {}
 
-		/* want to style individual post classes? Booya! */
+
 		.post-id {}         /* post by id (i.e. post-3) */
 		.post {}            /* general post style */
 		.page {}            /* general article on a page style */
@@ -509,15 +403,11 @@ POSTS & CONTENT STYLES
 			time {}
 		}
 
-		/* entry content */
+
 		.entry-content {
 			padding: 1.5em 1.5em 0;
 
 			p {
-				margin: 0 auto;
-				margin-bottom: 1.5em;
-				flex-basis: 66.66666667%;
-    		max-width: 66.66666667%;
 			}
 
 
@@ -610,12 +500,7 @@ POSTS & CONTENT STYLES
 				height: auto;
 			}
 
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
+
 			.alignleft, img.alignleft {}
 			.alignright, img.alignright {}
 			.aligncenter, img.aligncenter {}
@@ -900,16 +785,6 @@ COMMENT STYLES
 
 		li {}
 
-			/* variations */
-			.comment {}
-			.alt {}
-			.odd {}
-			.even {}
-			.depth-1 {}           /* change number for different depth */
-			.byuser {}
-			.bypostauthor {}
-			.comment-author-admin {}
-
 	} /* end children */
 
 
@@ -1077,6 +952,8 @@ SIDEBARS & ASIDES
 	.widget {
 
 		ul {
+			list-style-type: none;
+			margin: 1em 0;
 
 			li {
 
@@ -1084,7 +961,9 @@ SIDEBARS & ASIDES
 
 				&:last-child {}
 
-				a {}
+				a {
+					text-decoration: none;
+				}
 
 				/* deep nesting */
 				ul {}
@@ -1114,15 +993,6 @@ FOOTER STYLES
 	color: $light-gray;
 }
 
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
 	.footer-links {
 
 		ul {
